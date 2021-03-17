@@ -23,7 +23,6 @@ import numpy as np
 from tensorflow.python.ops import custom_gradient # pylint:disable=g-direct-tensorflow-import
 from tensorflow.python.framework import ops # pylint:disable=g-direct-tensorflow-import
 
-
 def get_variable_by_name(var_name):
   """Given a variable name, retrieves a handle on the tensorflow Variable."""
 
