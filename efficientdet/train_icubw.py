@@ -21,8 +21,8 @@ def define_flags():
     """Define the flags."""
     flags.DEFINE_bool('download_training', False, 'True to download training set.')
     flags.DEFINE_bool('download_test', False, 'True to download test set.')
-    flags.DEFINE_bool('train_tf', True, 'True to craete train TFrecords.')
-    flags.DEFINE_bool('test_tf', True, 'True to craete test TFrecords.')
+    flags.DEFINE_bool('train_tf', False, 'True to craete train TFrecords.')
+    flags.DEFINE_bool('test_tf', False, 'True to craete test TFrecords.')
     flags.DEFINE_string('train_config', "training_00.json", 'The training json config file name.')
 
 
