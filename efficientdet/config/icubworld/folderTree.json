@@ -1,0 +1,14 @@
+{	
+	"download": "../tmp/icubworld/download/",
+	"sets": "../tmp/icubworld/sets/",
+	
+	"training":"../tmp/icubworld/training/",
+	"training_images": "../tmp/icubworld/training/images/",
+	"training_labels": "../tmp/icubworld/training/annotations/",
+	"training_tfrecords": "../tmp/icubworld/training/tfrecords/",
+	
+	"test":"../tmp/icubworld/test/",
+	"test_images": "../tmp/icubworld/test/images/",
+	"test_labels": "../tmp/icubworld/test/annotations/",
+	"test_tfrecords": "../tmp/icubworld/test/tfrecords/"
+}
