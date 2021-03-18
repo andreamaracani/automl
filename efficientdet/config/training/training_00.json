@@ -1,10 +1,10 @@
 {	"training_name":"training_00",
 	"model":"efficientdet-d0",
 	"mode":"train_and_eval",
-    "train_batch_size":64,
-    "eval_batch_size":64,
-	"eval_samples":1024,
-    "num_examples_per_epoch":128,
-	"num_epochs":2,
+    "train_batch_size":250,
+    "eval_batch_size":250,
+	"eval_samples":4500,
+    "num_examples_per_epoch":7976,
+	"num_epochs":20,
     "strategy":"gpus"
 }
