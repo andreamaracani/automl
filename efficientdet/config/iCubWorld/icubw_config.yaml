@@ -1,3 +1,0 @@
-num_classes: 30
-var_freeze_expr: '(efficientnet|fpn_cells|resample_p6)'
-label_map: {0: flower2, 1: flower7, 2: flower5, 3: mug3, 4: mug4, 5: mug1, 6: wallet7, 7: wallet10, 8: wallet6, 9: sodabottle2, 10: sodabottle3, 11: sodabottle4, 12: book6, 13: book4, 14: book9, 15: ringbinder6, 16: ringbinder4, 17: ringbinder5, 18: bodylotion5, 19: bodylotion8, 20: bodylotion2, 21: sprayer6, 22: sprayer8, 23: sprayer9, 24: pencilcase6, 25: pencilcase3, 26: pencilcase5, 27: hairclip8, 28: hairclip2, 29: hairclip6}
