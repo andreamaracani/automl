@@ -156,6 +156,7 @@ def main(_):
                      "--train_batch_size=" + str(training_params["train_batch_size"]),
                      "--eval_batch_size=" + str(training_params["eval_batch_size"]),
                      "--eval_samples=" + str(training_params["eval_samples"]),
+                     "--eval_after_train=" + str(bool(training_params["eval_after_train"])),
                      "--num_examples_per_epoch=" + str(training_params["num_examples_per_epoch"]),
                      "--num_epochs=" + str(training_params["num_epochs"]),
                      "--hparams=" + HPARAMS,
