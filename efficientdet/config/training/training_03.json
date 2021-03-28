@@ -1,0 +1,11 @@
+{	"training_name":"training_03",
+	"model":"efficientdet-d7",
+	"mode":"train",
+    "train_batch_size":100,
+    "eval_batch_size":100,
+	"eval_samples":4500,
+    "num_examples_per_epoch":7976,
+	"num_epochs":300,
+    "strategy":"gpus",
+	"eval_after_train":1
+}
