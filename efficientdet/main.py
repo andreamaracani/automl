@@ -131,7 +131,7 @@ flags.DEFINE_integer('num_epochs', None, 'Number of epochs for training')
 flags.DEFINE_enum('mode', 'train', ['train', 'eval', 'train_and_eval'],
                     'Mode to run: train, eval or train_and_eval')
 flags.DEFINE_string('model_name', 'efficientdet-d1', 'Model name.')
-flags.DEFINE_bool('eval_after_train', False, 'Run one eval after the '
+flags.DEFINE_bool('eval_after_train', True, 'Run one eval after the '
                   'training finishes.')
 flags.DEFINE_bool('profile', False, 'Profile training performance.')
 flags.DEFINE_integer(
