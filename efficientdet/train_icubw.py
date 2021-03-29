@@ -17,13 +17,13 @@ CONFIG_ICUBWORLD = "config/icubworld/"
 CONFIG_EFFICIENTDET = "config/efficientdet/"
 CONFIG_TRAINING = "config/training/"
 HPARAMS = CONFIG_ICUBWORLD + "icubw_config.yaml"
-def define_flags():
-    """Define the flags."""
-    flags.DEFINE_bool('download_training', False, 'True to download training set.')
-    flags.DEFINE_bool('download_test', False, 'True to download test set.')
-    flags.DEFINE_bool('train_tf', False, 'True to craete train TFrecords.')
-    flags.DEFINE_bool('test_tf', False, 'True to craete test TFrecords.')
-    flags.DEFINE_string('train_config', "training_03.json", 'The training json config file name.')
+
+
+flags.DEFINE_bool('download_training', False, 'True to download training set.')
+flags.DEFINE_bool('download_test', False, 'True to download test set.')
+flags.DEFINE_bool('train_tf', False, 'True to craete train TFrecords.')
+flags.DEFINE_bool('test_tf', False, 'True to craete test TFrecords.')
+flags.DEFINE_string('train_config', "training_03.json", 'The training json config file name.')
 
 
 class DownloadProgressBar(tqdm):
@@ -90,8 +90,6 @@ def json2dict(file):
 
 
 def main(_):
-
-    define_flags()
 
     # dataset
     download_urls = json2dict(CONFIG_ICUBWORLD + "download.json")
@@ -177,4 +175,5 @@ def main(_):
     # "--strategy = gpus"
 
 if __name__ == '__main__':
+
   app.run(main)
