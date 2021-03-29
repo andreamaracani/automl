@@ -14,12 +14,16 @@
 # ==============================================================================
 """Inspect tfrecord dataset."""
 import os
+import sys
 from absl import app
 from absl import flags
 from absl import logging
 import numpy as np
 from PIL import Image
 import tensorflow as tf
+
+basedir = os.path.dirname(__file__)
+sys.path.append(os.path.abspath(os.path.join(basedir, os.path.pardir)))
 
 import dataloader
 import hparams_config
