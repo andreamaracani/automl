@@ -158,7 +158,9 @@ def main(_):
                      "--num_examples_per_epoch=" + str(training_params["num_examples_per_epoch"]),
                      "--num_epochs=" + str(training_params["num_epochs"]),
                      "--hparams=" + HPARAMS,
-                     "--strategy=" + training_params["strategy"]])
+                     "--strategy=" + training_params["strategy"],
+                     "--save_checkpoints_steps=500",
+                     "--min_eval_interval=400"])
 
 
     #print(os.getcwd())
