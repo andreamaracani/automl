@@ -139,7 +139,7 @@ flags.DEFINE_integer(
     ' across runs (for debugging).')
 
 # For Eval mode
-flags.DEFINE_integer('min_eval_interval', 800,
+flags.DEFINE_integer('min_eval_interval', 1500,
                      'Minimum seconds between evaluations.')
 flags.DEFINE_integer(
     'eval_timeout', None,
