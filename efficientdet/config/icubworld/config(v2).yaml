@@ -1,0 +1,13 @@
+num_classes: 31
+var_freeze_expr: '(efficientnet)'
+label_map: {1: flower2, 2: flower7, 3: flower5, 4: mug3, 5: mug4, 6: mug1, 7: wallet7, 8: wallet10, 9: wallet6, 10: sodabottle2, 11: sodabottle3, 12: sodabottle4, 13: book6, 14: book4, 15: book9, 16: ringbinder6, 17: ringbinder4, 18: ringbinder5, 19: bodylotion5, 20: bodylotion8, 21: bodylotion2, 22: sprayer6, 23: sprayer8, 24: sprayer9, 25: pencilcase6, 26: pencilcase3, 27: pencilcase5, 28: hairclip8, 29: hairclip2, 30: hairclip6}
+use_keras_model: False 
+anchor_scale: 1  # smallest object is about 8px
+num_scales: 5 
+aspect_ratios: [1.0, 0.4, 2.49]
+optimizer: sgd
+learning_rate: 0.03
+lr_warmup_init: 0.003
+jitter_min: 0.9 # the color is important for the detection of objects tuned this down
+jitter_max: 1.1
+max_instances_per_image: 200  # got an error here with 100
