@@ -1,3 +1,3 @@
 num_classes: 31
-var_freeze_expr: '(efficientnet|fpn_cells)'
+var_freeze_expr: '(efficientnet|fpn_cells|resample_p6)'
 label_map: {1: flower2, 2: flower7, 3: flower5, 4: mug3, 5: mug4, 6: mug1, 7: wallet7, 8: wallet10, 9: wallet6, 10: sodabottle2, 11: sodabottle3, 12: sodabottle4, 13: book6, 14: book4, 15: book9, 16: ringbinder6, 17: ringbinder4, 18: ringbinder5, 19: bodylotion5, 20: bodylotion8, 21: bodylotion2, 22: sprayer6, 23: sprayer8, 24: sprayer9, 25: pencilcase6, 26: pencilcase3, 27: pencilcase5, 28: hairclip8, 29: hairclip2, 30: hairclip6}

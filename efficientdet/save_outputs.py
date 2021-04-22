@@ -6,10 +6,13 @@ import os
 import subprocess
 import sys
 
+full_path = os.path.realpath(__file__)
+base_dir = os.path.dirname(full_path)
+
 FLAGS = flags.FLAGS
-CONFIG_ICUBWORLD = "config/icubworld/"
-CONFIG_EFFICIENTDET = "config/efficientdet/"
-CONFIG_TRAINING = "config/training/"
+CONFIG_ICUBWORLD = base_dir + "/config/icubworld/"
+CONFIG_EFFICIENTDET = base_dir + "/config/efficientdet/"
+CONFIG_TRAINING = base_dir + "/config/training/"
 HPARAMS = CONFIG_ICUBWORLD + "icubw_config.yaml"
 
 # specify the model to evaluate
@@ -34,13 +37,14 @@ def save_model(model_name, ckpt_path, hparams, saved_model_dir):
                      '--saved_model_dir=' + saved_model_dir
                      ])
 
-def save_outputs(model_name, saved_model_dir, input_image, output_image_dir):
+def save_outputs(model_name, saved_model_dir, input_image, output_image_dir, hparams):
     subprocess.call([sys.executable,
                      'model_inspect.py',
                      '--runmode=saved_model_infer',
                      '--model_name=' + model_name,
                      '--saved_model_dir=' + saved_model_dir,
                      '--input_image=' + input_image,
+                     '--hparams=' + hparams,
                      '--output_image_dir=' + output_image_dir
                      ])
 
@@ -55,12 +59,13 @@ def main(_):
     # Check an existing dataset has been selected
     assert FLAGS.dataset == "icubw", "Dataset not set to icubw!"
 
+    print(CONFIG_TRAINING + FLAGS.model + ".json")
     # Check an existing json training file has been selected
     assert os.path.isfile(CONFIG_TRAINING + FLAGS.model + ".json"), "File JSON named " + FLAGS.model + " not found!"
 
     # Model folder based on dataset name
     if FLAGS.dataset == "icubw":
-        model_folder = json2dict(CONFIG_EFFICIENTDET + "folderTree.json")["fine_tuning_icubw"]
+        model_folder = base_dir +"/"+json2dict(CONFIG_EFFICIENTDET + "folderTree.json")["fine_tuning_icubw"]
 
     # Model name
     model_name = FLAGS.model
@@ -82,7 +87,7 @@ def main(_):
 
         save_model(model_name=backbone,
                    ckpt_path=model_folder + model_name,
-                   hparams=model_folder + model_name + "/config.yaml",
+                   hparams=model_folder + model_name + "/config1.yaml",
                    saved_model_dir=saved_model_folder)
 
     if FLAGS.eval is not None:
@@ -94,7 +99,7 @@ def main(_):
             tf.io.gfile.makedirs(output_folder)
 
         print("Saving outputs of " + FLAGS.eval + " set, in " + output_folder)
-        IMAGE_PATH = "images/1.jpg"
+        IMAGE_PATH = "images/*"
 
         print(backbone)
         print(saved_model_folder)
@@ -103,7 +108,8 @@ def main(_):
         save_outputs(model_name=backbone,
                      saved_model_dir=saved_model_folder,
                      input_image=IMAGE_PATH,
-                     output_image_dir=output_folder)
+                     output_image_dir=output_folder,
+                     hparams=model_folder + model_name + "/config1.yaml")
 
 if __name__ == '__main__':
 

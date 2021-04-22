@@ -381,7 +381,7 @@ def main(_):
       ckpt = tf.train.latest_checkpoint(FLAGS.model_dir)
       utils.archive_ckpt(eval_results, eval_results['AP'], ckpt)
 
-    epochs_per_cycle = 1  # higher number has less graph construction overhead.
+    epochs_per_cycle = 5 #1  # higher number has less graph construction overhead.
     for e in range(current_epoch + 1, config.num_epochs + 1, epochs_per_cycle):
       if FLAGS.run_epoch_in_child_process:
         p = multiprocessing.Process(target=run_train_and_eval, args=(e,))
